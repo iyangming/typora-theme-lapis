@@ -1,30 +1,33 @@
 /* 
- *     Typora Theme - Lapis    /    Author - YiNN 
- *     https://github.com/YiNNx/typora-theme-lapis
+ * Typora Theme - Lapis
+ * Author: YiNN
+ * GitHub: https://github.com/YiNNx/typora-theme-lapis
+ * 
+ * A clean and elegant theme for Typora markdown editor
+ * Features:
+ * - Light/dark mode support
+ * - Custom fonts (Cantarell, Source Han Serif CN, JetBrains Mono)
+ * - Responsive design
+ * - Syntax highlighting
  */
 
+/* 
+ * CSS变量定义 - 控制主题的整体配色方案
+ * 这些变量在整个主题中被引用，修改它们可以快速改变主题外观
+ */
 :root {
     --text-color: #40464f;
-    /* Text */
     --primary-color: #4870ac;
-    /* Primary Color */
     --bg-color: #ffffff;
     --side-bar-bg-color: var(--bg-color);
-    /* Background */
-
     --marker-color: #a2b6d4;
-    /* List Marker */
     --source-color: #a8a8a9;
-    /* for comment / link source */
     --highlight-color: #ffffb5c2;
-    /* Highlight */
     --header-span-color: var(--primary-color);
-    /* h2 Span Color */
     --block-bg-color: #f6f8fa;
-    /* Block Background */
     --img-shadow-color: #e3e8f0;
 
-    /* Overwrite of Typora Base Color */
+    /* 覆盖Typora默认颜色 */
     --search-hit-bg-color: var(--select-text-bg-color);
     --search-select-bg-color: #5bb3ff;
     --control-text-hover-color: #a2b6d4;
@@ -33,6 +36,10 @@
     --active-file-bg-color: var(--block-bg-color);
 }
 
+/* 
+ * 打印样式 - 优化打印输出时的外观
+ * 移除不必要的背景色和阴影效果
+ */
 @media print {
     :root {
         --text-color: rgb(0, 0, 0);
@@ -48,9 +55,9 @@
 }
 
 /*
- * Font-face for Cantarell, Source Han Serif CN and JetBrains Mono
+ * 字体定义 - 引入自定义字体
+ * 包括Cantarell(主字体)、Source Han Serif CN(中文字体)和JetBrains Mono(代码字体)
  */
-
 @font-face {
     font-family: "Cantarell";
     src: url('lapis/Cantarell-VF-fixed.otf');
@@ -73,9 +80,9 @@
 }
 
 /*
- * Basic Style
+ * 基本编辑器样式 - 设置主编辑区域
+ * 控制字体、行高、对齐方式等基本排版属性
  */
-
 #write {
     max-width: 950px;
     font-size: 1.1rem;
@@ -89,6 +96,54 @@
 
     font-family: 'Cantarell', 'SourceHanSerifCN', 'JetBrainsMono';
     margin-bottom: 20rem;
+}
+
+/*
+ * 标题样式 - 统一各级标题的外观
+ * 特别处理h2标题的背景色和文字颜色
+ */
+#write h1,
+#write h2,
+#write h3,
+#write h4,
+#write h5,
+#write h6 {
+    font-family: 'SourceHanSerifCN';
+    padding: 0px;
+    color: var(--primary-color);
+}
+
+#write h2 {
+    padding: 1px 12.5px;
+    border-radius: 4px;
+    display: inline-block;
+    background-color: var(--header-span-color);
+    color: var(--bg-color);
+}
+
+/*
+ * 代码块样式 - 设置代码高亮和编辑器外观
+ * 包括语法高亮颜色方案和编辑器布局
+ */
+.cm-s-inner.CodeMirror {
+    padding: 1.2rem .8rem;
+    color: #4f5467;
+    font-family: 'JetBrainsMono';
+    border-radius: 10px;
+    background-color: var(--block-bg-color);
+    line-height: 1.6rem;
+}
+
+/*
+ * 侧边栏样式 - 控制文件树和大纲视图
+ * 保持与主编辑器一致的视觉风格
+ */
+#typora-sidebar {
+    font-family: 'Cantarell', 'SourceHanSerifCN';
+    height: 100%;
+    color: var(--text-color);
+    font-size: 0.92rem;
+    background-color: var(--bg-color);
 }
 
 .searchpanel-search-option-btn {
@@ -728,6 +783,22 @@ pre.md-fences-advanced.md-focus .md-fences-adv-panel {
     width: .5rem;
 }
 
+/* 
+ * 代码块颜色方案 - 定义语法高亮颜色
+ * 包括关键字、操作符、变量、字符串、注释等不同语法元素的颜色
+ */
+.cm-s-inner .cm-keyword {
+    color: #1694b6 !important;
+}
+
+.cm-s-inner .cm-operator {
+    color: #2f86d2 !important;
+}
+
+/* 
+ * 滚动条样式 - 自定义滚动条外观
+ * 包括轨道和滑块的颜色、圆角等视觉效果
+ */
 ::-webkit-scrollbar-track {
     border-radius: 10px;
 }
