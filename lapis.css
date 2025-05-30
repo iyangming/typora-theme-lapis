@@ -420,6 +420,10 @@ li.md-list-item {
  * Quote
  */
 
+/* 
+ * 引用块样式 - 设置Markdown引用块的外观
+ * 包括左侧边框、内边距、背景色和字体大小
+ */
 #write blockquote {
     display: block;
     font-size: .9em;
@@ -431,6 +435,10 @@ li.md-list-item {
     background: var(--block-bg-color);
 }
 
+/* 
+ * 警告框样式 - 设置Markdown警告框的基本样式
+ * 继承自引用块样式，但具有特殊类型变体
+ */
 .md-alert {
     display: block;
     overflow: auto;
@@ -529,51 +537,62 @@ li.md-list-item {
 /*
  * Table
  */
+/* 
+ * 表格样式 - 设置Markdown表格的整体外观和布局
+ * 包括表格边框、单元格间距、对齐方式和响应式设计
+ */
 #write table {
     display: table;
     text-align: justify;
-    overflow-x: auto;
-    border-collapse: collapse;
+    overflow-x: auto;  /* 支持水平滚动 */
+    border-collapse: collapse;  /* 合并边框 */
     border-spacing: 0px;
     font-size: 1em;
     margin: 0px 0px 20px;
-    width: 100%;
+    width: 100%;  /* 100%宽度 */
 }
 
+/* 表格主体样式 - 移除默认边框 */
 #write tbody {
     border: 0;
 }
 
+/* 表格行样式 - 设置顶部边框 */
 #write table tr {
     border: 0;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #ccc;  /* 行间分隔线 */
 }
 
+/* 表头和单元格基础样式 */
 #write table tr th,
 #write table tr td {
     font-size: 1rem;
-    border: 1px solid #d9dfe4;
-    padding: 5px 10px;
+    border: 1px solid #d9dfe4;  /* 单元格边框 */
+    padding: 5px 10px;  /* 内边距 */
     text-align: justify;
 }
 
+/* 表头特殊样式 */
 #write table tr th {
-    font-family: SourceHanSerifCN;
-    text-align: center;
-    min-width: 10rem;
-    font-weight: bold;
-    color: var(--primary-color);
+    font-family: SourceHanSerifCN;  /* 特殊字体 */
+    text-align: center;  /* 居中对齐 */
+    min-width: 10rem;  /* 最小宽度 */
+    font-weight: bold;  /* 加粗 */
+    color: var(--primary-color);  /* 使用主题主色 */
 }
 
+/* 悬停效果 */
 #write table tr td:hover,
 #write table tr th:hover {
-    background-color: var(--block-bg-color);
+    background-color: var(--block-bg-color);  /* 使用主题背景色 */
 }
 
+/* 单元格最小宽度 */
 table td {
     min-width: 32px;
 }
 
+/* 表格调整大小面板样式 */
 .md-table-resize-popover {
     width: auto !important;
 }
